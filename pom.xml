@@ -48,17 +48,24 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.0.Final</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.ow2.jotm/jotm -->
 		<!-- https://mvnrepository.com/artifact/org.ow2.jotm/jotm-core -->
 		<dependency>
 			<groupId>org.ow2.jotm</groupId>
 			<artifactId>jotm-core</artifactId>
 			<version>2.3.1-M1</version>
 		</dependency>
-
-
-
-
+		<!-- https://mvnrepository.com/artifact/com.experlog/xapool -->
+		<dependency>
+			<groupId>com.experlog</groupId>
+			<artifactId>xapool</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.resource/javax.resource-api -->
+		<dependency>
+			<groupId>javax.resource</groupId>
+			<artifactId>javax.resource-api</artifactId>
+			<version>1.7.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>hibernate</finalName>
