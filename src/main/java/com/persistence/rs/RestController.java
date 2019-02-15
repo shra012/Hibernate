@@ -1,4 +1,4 @@
-package com.hibernate.rs;
+package com.persistence.rs;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-import com.hibernate.entitymanager.factory.AppllicationEntityManagerFactory;
-import com.hibernate.model.Message;
+import com.persistence.entitymanager.factory.AppllicationEntityManagerFactory;
+import com.persistence.model.Message;
 
 @Path("/controller")
 public class RestController {
@@ -44,8 +44,8 @@ public class RestController {
 			tx.commit();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return Response.status(500).entity("Failed to insert the record").build();
 		}
 
 		return Response.status(200).entity(output).build();
@@ -84,6 +84,7 @@ public class RestController {
 			tx.begin();
 			EntityManager em = AppllicationEntityManagerFactory.getInstance().getEntityManager();
 			message = em.find(Message.class, id);
+			message.setText("Hey "+message.getText().split(",")[1]);
 			tx.commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

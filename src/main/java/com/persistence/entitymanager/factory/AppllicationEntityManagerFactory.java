@@ -1,4 +1,4 @@
-package com.hibernate.entitymanager.factory;
+package com.persistence.entitymanager.factory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

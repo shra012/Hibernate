@@ -11,7 +11,7 @@
         <!-- Define the ResourceConfig class -->
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>com.hibernate.app.Application</param-value>
+            <param-value>com.persistence.app.Application</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
