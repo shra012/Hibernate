@@ -4,9 +4,9 @@
 
 	<Resource name="jdbc/JAWSDB" auth="Container"
 		type="javax.sql.DataSource" maxTotal="100" maxIdle="30"
-		maxWaitMillis="10000" username="root"
-		password="root" driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://localhost/Volunteer" />
+		maxWaitMillis="10000" username="qeoyr42ifleo9d6r"
+		password="etb07ptwgl1qwtk7" driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://ocvwlym0zv3tcn68.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/rvfdc5mi4hzbpkjo" />
 
 	<Resource name="UserTransaction" auth="Container" type="javax.transaction.UserTransaction"/>
     <Transaction factory="org.objectweb.jotm.UserTransactionFactory" jotm.timeout="60"/>
