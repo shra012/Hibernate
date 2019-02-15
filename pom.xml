@@ -98,7 +98,6 @@
 
 						</resource>
 					</webResources>
-
 					<warName>hibernate</warName>
 				</configuration>
 			</plugin>
