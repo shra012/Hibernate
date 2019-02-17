@@ -11,10 +11,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
+import com.core.builder.ResponseBuilder;
 import com.persistence.entitymanager.factory.AppllicationEntityManagerFactory;
 import com.persistence.model.Message;
 
-@Path("/controller")
+@Path("/persistence")
 public class RestController {
 
 	@GET
@@ -40,7 +41,6 @@ public class RestController {
 			Message message = new Message();
 			message.setText("Hello, " + msg + "!");
 			em.persist(message);
-			em.close();
 			tx.commit();
 
 		} catch (Exception e) {
@@ -69,7 +69,7 @@ public class RestController {
 			e.printStackTrace();
 		}
 
-		return Response.status(200).entity(printTable(messages)).build();
+		return Response.status(200).entity(ResponseBuilder.printTable(messages)).build();
 	}
 	
 	@GET
@@ -91,49 +91,8 @@ public class RestController {
 			e.printStackTrace();
 		}
 
-		return Response.status(200).entity(printTable(message)).build();
+		return Response.status(200).entity(ResponseBuilder.printTable(message)).build();
 	}
-
-	private String printTable(List<?> list) {
-		if (null == list || list.size() <= 0) {
-			return "<h1 style='color: red;'> No Records Found </h1>";
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append("<table>");
-		if (list.get(0) instanceof Message) {
-			Message me = (Message) list.get(0);
-			sb = me.printTableHeader(sb);
-		}
-		for (Object object : list) {
-			if (object instanceof Message) {
-				Message me = (Message) object;
-				sb = me.printTableRow(sb, me);
-			}
-		}
-		sb.append("</table>");
-
-		return sb.toString();
-	}
-
-	private String printTable(Object obj) {
-		if (null == obj) {
-			return "<h1 style='color: red;'> No Records Found </h1>";
-		}
-		StringBuilder sb = new StringBuilder();
-		sb.append("<table>");
-		if (obj instanceof Message) {
-			Message me = (Message) obj;
-			sb = me.printTableHeader(sb);
-		}
-
-		if (obj instanceof Message) {
-			Message me = (Message) obj;
-			sb = me.printTableRow(sb, me);
-		}
-
-		sb.append("</table>");
-
-		return sb.toString();
-	}
+	
 
 }
